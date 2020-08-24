@@ -15,8 +15,6 @@
 <body>
     <script src="scripts/index.js"></script>
 
-
-    <form>
         <label>Nome: </label>
         <input id="txtNome" placeholder="Insira seu nome"><br><br>
         <label>Idade: </label>
@@ -25,8 +23,16 @@
         <input id="txtEmail" placeholder="Insira seu e-mail"><br><br>
         <label>Telefone: </label>
         <input id="txtTelefone" placeholder="Insira seu telefone"><br><br>
+
+
+        <label id="lblNome">Carregando...</label>
+        <label id="lblIdade">Carregando...</label>
+        <label id="lblTelefone">Carregando...</label>
+        <label id="lblEmail">Carregando...</label>
+        <br><br>
         <button onclick="inserirDados()">Inserir</button>   
-</form>
+        <button onclick="lerDados()">Selecionar</button>   
+
 
 <footer>
       

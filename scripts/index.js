@@ -44,15 +44,22 @@ function inserirDados(){
 
 
 
+function lerDados(){
+
+    var email = document.getElementById("txtEmail").value;
+
+    //document.getElementById("lblEmail").innerHTML = email;
+    ///console.log(email);
+    userRef.child(btoa(email)).on("child_added", snap=>{
+
+        document.getElementById("lblNome").innerHTML = snap.child("nome").val();
+
+    });
+
+
+
+}
 
 
 
 
-
-
-
-function deletarDados(){}
-
-function atualizarDados(){}
-
-function lerDados(){}
