@@ -57,7 +57,12 @@ function lerDados(){
         document.getElementById("lblIdade").innerHTML = snap.child("idade").val();
         document.getElementById("lblEmail").innerHTML = snap.child("email").val();
 
-        //Passando as informações para os campos de text
+        //Passando as informações para os campos de texto
+
+        document.getElementById("txtNome").value =  snap.child("nome").val();
+        document.getElementById("txtTelefone").value = snap.child("telefone").val();
+        document.getElementById("txtIdade").value = snap.child("idade").val();
+        document.getElementById("txtEmail").value = snap.child("email").val();
     });
 
 
@@ -80,15 +85,33 @@ function excluirDados(){
 
 
 function alterarDados(){
-  
+
+
+
+
+  var atualizacao = {
+
+    nome:  document.getElementById("txtNome").value,
+    email: document.getElementById("txtEmail").value,
+    telefone: document.getElementById("txtTelefone").value,
+    idade: document.getElementById("txtIdade").value
+  }
+
   var email = document.getElementById("txtEmail").value;
   var encodedEmail = btoa(email.toString());
 
+var newKey =  firebase.database().ref("cadastro").child(encodedEmail).push().key;
+
+ 
+
   var updateRef =   firebase.database().ref("cadastro").child(encodedEmail);
+
 
   var updates = {};
 
+  updates[newKey] = atualizacao;
 
+  updateRef.update(updates);
 
 }
 
