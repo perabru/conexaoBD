@@ -57,7 +57,36 @@ function lerDados(){
         document.getElementById("lblIdade").innerHTML = snap.child("idade").val();
         document.getElementById("lblEmail").innerHTML = snap.child("email").val();
 
+        //Passando as informações para os campos de text
     });
+
+
+
+}
+
+function excluirDados(){
+  
+
+
+  var encEmail = btoa(document.getElementById("txtEmail").value);
+
+  userRef.child(encEmail).remove();
+
+  /*let userRef = this.database.ref('users/' + userId);
+    userRef.remove()*/ 
+
+
+}
+
+
+function alterarDados(){
+  
+  var email = document.getElementById("txtEmail").value;
+  var encodedEmail = btoa(email.toString());
+
+  var updateRef =   firebase.database().ref("cadastro").child(encodedEmail);
+
+  var updates = {};
 
 
 
