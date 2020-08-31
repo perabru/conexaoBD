@@ -53,6 +53,9 @@ function lerDados(){
     userRef.child(btoa(email)).on("child_added", snap=>{
 
         document.getElementById("lblNome").innerHTML = snap.child("nome").val();
+        document.getElementById("lblTelefone").innerHTML = snap.child("telefone").val();
+        document.getElementById("lblIdade").innerHTML = snap.child("idade").val();
+        document.getElementById("lblEmail").innerHTML = snap.child("email").val();
 
     });
 
